@@ -5,10 +5,8 @@ public:
         int n = nums.size();
         for(auto it: nums){
             mpp[it]++;
-        }
-        for(auto it: mpp){
-            if(it.second > n/2){
-                return it.first;
+            if(mpp[it]>n/2){
+                return it;
             }
         }
         return -1;
