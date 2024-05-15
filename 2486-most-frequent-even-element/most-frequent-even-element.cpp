@@ -1,23 +1,19 @@
 class Solution {
 public:
 // hashing 
-    int mostFrequentEven(vector<int>& nums) {
-        unordered_map<int, int> mpp;
-        for(auto num: nums){
-            if(num%2==0){
-                mpp[num]++;
-            }
-        }
-        int maxVal = 0;
-        int mostFreqEle = -1;
-        for(auto it: mpp){
-            if(maxVal==it.second){
-                mostFreqEle = min(mostFreqEle,it.first);
-            } else if(maxVal<it.second){
-                maxVal = it.second;
-                mostFreqEle = it.first;
-            }
-        }
-        return mostFreqEle;
-    }
+// single pass
+    int mostFrequentEven(vector<int> &nums) {
+		unordered_map<int, int> mp;
+		int key = INT_MAX, maxFreq = 0;
+		for (int &num : nums) {
+			if (num % 2 == 0) {
+				mp[num]++;
+				if (mp[num] > maxFreq || (mp[num] == maxFreq && num < key)) {
+					key = num;
+					maxFreq = mp[num];
+				}
+			}
+		}
+		return maxFreq ? key : -1;
+	}
 };
