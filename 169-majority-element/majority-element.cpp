@@ -17,14 +17,14 @@ public:
             }
         }
         // case to validate in case this is not an actual majority
-        int cnt = 0;
-        for(auto it: nums){
-            if(it==majorityElement) 
-                cnt++;
-        }
-        if(cnt>n/2)
+        // int cnt = 0;
+        // for(auto it: nums){
+        //     if(it==majorityElement) 
+        //         cnt++;
+        // }
+        // if(cnt>n/2)
             return majorityElement;
-        else 
-            return -1;
+        // else 
+        //     return -1;
     }
 };
