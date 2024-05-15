@@ -1,8 +1,6 @@
 class Solution {
 public:
-// could have used hashing here
-// but implementing a more optimised solution here
-// Moore's Voting algo
+// hashing 
     int mostFrequentEven(vector<int>& nums) {
         unordered_map<int, int> mpp;
         for(auto num: nums){
@@ -14,7 +12,6 @@ public:
         int mostFreqEle = -1;
         for(auto it: mpp){
             if(maxVal==it.second){
-                maxVal = it.second;
                 mostFreqEle = min(mostFreqEle,it.first);
             } else if(maxVal<it.second){
                 maxVal = it.second;
