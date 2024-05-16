@@ -24,10 +24,12 @@ public:
         }
         // if maxFreq, then calculate minLen
         int minLen = INT_MAX;
-        for(auto it: mpp){
-            int len = it.second.second - it.second.first + 1;
-            if(len<minLen){
-                minLen = len;
+        for(auto it: freq){
+            if(it.second==maxFreq){
+                int len = mpp[it.first].second - mpp[it.first].first + 1;
+                if(len<minLen){
+                    minLen = len;
+                }
             }
         }
         return minLen;
