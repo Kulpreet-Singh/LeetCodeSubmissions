@@ -3,9 +3,11 @@ public:
     int maxProfit(vector<int>& prices) {
         int minPrice = 1e9;
         int maxProfit = 0;
+        int profit = 0;
         for(auto &price: prices){
             if(price<minPrice) minPrice = price;
-            if(price - minPrice>maxProfit) maxProfit = price - minPrice;
+            profit = price - minPrice;
+            if(profit>maxProfit) maxProfit = profit;
         }
         return maxProfit;
     }
