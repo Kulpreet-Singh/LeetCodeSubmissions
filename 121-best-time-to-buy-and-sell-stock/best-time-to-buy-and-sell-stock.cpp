@@ -4,8 +4,8 @@ public:
         int minPrice = 1e9;
         int maxProfit = 0;
         for(auto &price: prices){
-            minPrice = min(minPrice, price);
-            maxProfit = max(price - minPrice, maxProfit);
+            if(price<minPrice) minPrice = price;
+            if(price - minPrice>maxProfit) maxProfit = price - minPrice;
         }
         return maxProfit;
     }
