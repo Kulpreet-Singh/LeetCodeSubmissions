@@ -17,7 +17,7 @@ public:
             }
         }
         high = nums.size() - 1;
-        low = 0;
+        low = max(0, firstOccurence);
         while (low <= high) {
             int mid = low + (high - low) / 2;
             if (nums[mid] == target) {
