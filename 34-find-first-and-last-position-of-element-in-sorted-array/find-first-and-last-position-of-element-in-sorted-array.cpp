@@ -16,8 +16,11 @@ public:
                 high = mid - 1;
             }
         }
+        if(firstOccurence==-1){
+            return {-1, -1};
+        }
         high = nums.size() - 1;
-        low = max(0, firstOccurence);
+        low = firstOccurence;
         while (low <= high) {
             int mid = low + (high - low) / 2;
             if (nums[mid] == target) {
