@@ -6,6 +6,6 @@ public:
         }
         int lb = lower_bound(nums.begin(), nums.end(), target)-nums.begin();
         int ub = upper_bound(nums.begin(), nums.end(), target)-nums.begin();
-        return {lb, max(0, ub-1)};
+        return {lb, ub-1};
     }
 };
