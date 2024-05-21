@@ -1,8 +1,8 @@
 class Solution {
 public:
     void setZeroes(vector<vector<int>>& matrix) {
-        set<int> rows;
-        set<int> columns;
+        unordered_set<int> rows;
+        unordered_set<int> columns;
         int m = matrix.size();
         int n = matrix[0].size();
         for(int i=0;i<m;i++){
@@ -13,12 +13,12 @@ public:
                 }
             }
         }
-        for(auto it: rows){
+        for(auto& it: rows){
             for(int j=0;j<n;j++){
                 matrix[it][j] = 0;
             }
         }
-        for(auto it: columns){
+        for(auto& it: columns){
             for(int i=0;i<m;i++){
                 matrix[i][it] = 0;
             }
