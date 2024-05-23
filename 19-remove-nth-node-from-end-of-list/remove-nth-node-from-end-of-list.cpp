@@ -14,11 +14,10 @@ public:
         ListNode* temp = head;
         ListNode* prev = NULL;
         ListNode* offsetN = head;
-        n--;
         while(n--){
             offsetN = offsetN->next;
         }
-        while(offsetN && offsetN->next){
+        while(offsetN){
             offsetN = offsetN->next;
             prev = temp;
             temp = temp->next;
