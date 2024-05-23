@@ -24,8 +24,10 @@ public:
         }
         if(prev==NULL){
             head = head->next;
+            delete(temp);
         } else {
             prev->next = temp->next;
+            delete(temp);
         }
         return head;
     }
