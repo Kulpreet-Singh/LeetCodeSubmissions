@@ -1,6 +1,6 @@
 class Solution {
 public:
-    // O(n) approach using xor
+    // O(logn) approach using binary search based on odd and even index
     int singleNonDuplicate(vector<int>& nums) {
         int n = nums.size();
         if (n == 1)
