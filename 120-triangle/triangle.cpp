@@ -15,12 +15,11 @@ public:
     // iterative approach
     int minimumTotal(vector<vector<int>>& triangle) {
         int n = triangle.size();
-        vector<int> ahead(n+1, 0), cur(n+1, 0);
+        vector<int> ahead(n+1, 0);
         for(int i=n-1;i>=0;i--){
-            for(int j=i; j>=0;j--){
-                cur[j] = triangle[i][j] + min(ahead[j], ahead[j+1]);
+            for(int j=0; j<=i;j++){
+                ahead[j] = triangle[i][j] + min(ahead[j], ahead[j+1]);
             }
-            ahead = cur;
         }
         return ahead[0];
     }
