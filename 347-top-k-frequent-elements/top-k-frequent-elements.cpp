@@ -1,6 +1,3 @@
-bool comparator(const pair<int, int>& a, const pair<int, int>& b) {
-    return a.second > b.second;
-}
 class Solution {
 public:
 // hashing + heap
@@ -10,14 +7,16 @@ public:
         for(auto num: nums){
             mpp[num]++;
         }
-        // convert hashMap to array and sort
-        vector<pair<int, int>> hashArray(mpp.begin(), mpp.end());
-        sort(hashArray.begin(), hashArray.end(), comparator);
-
+        // max heap of the hashed values
+        priority_queue<pair<int, int>> pq;
+        for(auto &[key, value]: mpp){
+            pq.push({value, key});
+        }
         // returing the top k elements
         vector<int> result;
         for(int i=0;i<k;i++){
-            result.push_back(hashArray[i].first);
+            result.push_back(pq.top().second);
+            pq.pop();
         }
         return result;
     }
