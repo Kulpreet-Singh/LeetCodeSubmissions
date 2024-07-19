@@ -3,7 +3,7 @@ public:
     bool containsDuplicate(vector<int>& nums) {
         set<int> s;
         for(auto num: nums){
-            if(s.find(num)!=s.end()){
+            if(s.count(num)){
                 return true;
             }
             s.insert(num);
