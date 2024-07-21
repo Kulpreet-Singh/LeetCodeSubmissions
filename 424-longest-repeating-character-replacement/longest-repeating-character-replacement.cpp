@@ -11,10 +11,16 @@ public:
             mpp[s[r]]++;
             maxf = max(maxf, mpp[s[r]]);
             int len = r - l + 1;
-            if (len - maxf > k) {
+            while (len - maxf > k) { // keep reducing window unless valid
                 mpp[s[l]]--;
+                maxf=0; // reset maxFreq again, at max 26 chars
+                for(auto it: mpp){
+                    maxf = max(maxf, it.second);
+                }
                 l++;
-            } else {
+                len = r - l + 1;
+            } 
+            if(len - maxf <= k){
                 ans = max(ans, len);
             }
         }
