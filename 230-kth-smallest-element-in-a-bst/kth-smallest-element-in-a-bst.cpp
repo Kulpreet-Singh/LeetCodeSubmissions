@@ -13,15 +13,15 @@
 class Solution {
 public:
     bool helper(TreeNode* root, int& k, int& val) {
-        if (k == 0) {
-            return true;
-        }
         if (root == NULL)
             return false;
         if (helper(root->left, k, val))
             return true;
         k--;
         val = root->val;
+        if (k == 0) {
+            return true;
+        }
         if (helper(root->right, k, val))
             return true;
         return false;
